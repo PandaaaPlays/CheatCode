@@ -1,0 +1,37 @@
+services:
+  mariadb:
+    container_name: MariaDB-CRUD
+    image: mariadb       
+    ports:
+      - 3306:3306
+    volumes:
+      - type: bind
+        source: ./mariadb/db-init
+        target: /docker-entrypoint-initdb.d
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: myrootpwd
+    healthcheck:
+        test: ["CMD", "mysqlshow", "-u", "root", "-pmyrootpwd", "classicmodels"]
+        interval: 5s
+        timeout: 10s
+        retries: 5
+
+  java:
+    container_name: Java-CRUD
+    build: ./java-mariadb-webapp/     
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+    environment:
+      DB_HOST: MariaDB-CRUD
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: myrootpwd
+
+volumes:
+  db-data:

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+    container_name: sqlserver
+
+    env_file:
+      - db_param.env
+
+    ports:
+      - 1433:1433
+
+    volumes:
+      - sqlserverdata:/var/opt/mssql 
+      - ./backup-files:/backup-files                  # Fichier(s) .BAK à restorer sur la base de donnée.
+      - ./db-init:/db-init                            # Script(s) .sql à exécuter sur la base de donnée.
+      - ./entrypoint.sh:/usr/local/bin/entrypoint.sh  # Script permettant l'initialisation de la base de donnée (pas nécessaire de modifier).
+
+    entrypoint: /usr/local/bin/entrypoint.sh
+
+volumes:
+  sqlserverdata:

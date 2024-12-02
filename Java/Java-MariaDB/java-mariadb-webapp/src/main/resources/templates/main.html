@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des produits</title>
+    <style>
+        /* Basic layout styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-add {
+            background-color: #2196F3; /* Blue color for Ajouter button */
+        }
+
+        /* Centering the Ajouter button */
+        .button-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50; /* Green color for Edit button */
+        }
+
+        .btn-remove {
+            background-color: #f44336; /* Red color for Remove button */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Liste des produits</h2>
+    <div class="button-container">
+        <a th:href="@{/add-form}" style="text-decoration: none;" class="btn btn-add">Ajouter</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Ligne de Produit</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${product}">
+            <td th:text="${product.productCode}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.productLine}"></td>
+            <td>
+                <a th:href="@{/edit-form/{id}(id=${product.productCode})}" style="text-decoration: none;" class="btn btn-edit">Modifier</a>
+                <form th:action="@{/delete/{id}(id=${product.productCode})}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-remove">Retirer</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

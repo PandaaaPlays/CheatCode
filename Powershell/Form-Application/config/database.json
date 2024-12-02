@@ -1,0 +1,67 @@
+{
+    "ssh_host": "acces.sti.usherbrooke.ca",
+
+    "UdS-VEO-Prod":
+    {
+        "db_host": "veo1bd-prod.sti.usherbrooke.ca",
+        "db_port": 3306,
+        "ssh_db_port": 60306
+    },
+
+    "UdS-VEO-Integration":
+    {
+        "db_host": "veo1bd-int.sti.usherbrooke.ca",
+        "db_port": 3306,
+        "ssh_db_port": 61022
+    },
+
+    "UdS-VEO-Formation":
+    {
+        "db_host": "veo1bd-form-prod01.sti.usherbrooke.ca",
+        "db_port": 3306,
+        "ssh_db_port": 53306
+    },
+
+    "UdS-VEO-nsquart":
+    {
+        "db_host": "veo1bd-dev01.sti.usherbrooke.ca",
+        "db_port": 3306
+    },
+
+    "UdS-VEO-nsquart2":
+    {
+        "db_host": "veo1bd-dev01.sti.usherbrooke.ca",
+        "db_port": 3307
+    },
+
+    "UdS-VEO-webfc":
+    {
+        "db_host": "veo1bd-dev03.sti.usherbrooke.ca",
+        "db_port": 3309
+    },
+
+    "UdS-VEO-AQ-acceptation":
+    {
+        "db_host": "veo1bd-dev06.sti.usherbrooke.ca",
+        "db_port": 3307
+    },
+
+    "UdS-VEO-AQ-stab":
+    {
+        "db_host": "veo1bd-dev03.sti.usherbrooke.ca",
+        "db_port": 3307
+    },
+
+    "UdS-VEO-AQ-stab2":
+    {
+        "db_host": "veo1bd-dev03.sti.usherbrooke.ca",
+        "db_port": 3308
+    },
+
+    "UdS-VEO-Perf":
+    {
+        "db_host": "bdveo-perf-int01.sti.usherbrooke.ca",
+        "db_port": 3306,
+        "ssh_db_port": 52026
+    }
+}

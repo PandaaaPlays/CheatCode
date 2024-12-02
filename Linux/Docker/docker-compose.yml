@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  ubuntu:
+    container_name: ubuntu
+    image: ubuntu:latest
+    restart: on-failure
+    command: ["sleep","infinity"]
+    volumes:
+      - ./Shared:/Shared

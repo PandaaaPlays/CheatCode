@@ -1,0 +1,26 @@
+<idea-plugin>
+    <!-- Plugin metadata -->
+    <id>ca.usherbrooke.sqlformatter</id>
+    <name>UdeS-SQLFormatter</name>
+    <vendor>Université de Sherbrooke</vendor>
+    <description><![CDATA[Formatter MariaDB de l'Universite de Sherbrooke]]></description>
+
+    <!-- Declare dependencies (optional) -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <idea-version since-build="232"/>
+
+    <!-- Actions (Example) -->
+    <actions>
+        <group id="UdeS.SQLFormatter.Group" text="[UdeS] SQL Formatter">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action class="ca.usherbrooke.intellijudessqlformatter.FormatSQL"
+                    id="UdeS.Actions.Format"
+                    text="[UdeS] Format SQL"/>
+            <action class="ca.usherbrooke.intellijudessqlformatter.FormatSQL"
+                    id="UdeS.Actions.FormatInline"
+                    text="[UdeS] Format SQL (Inline)"/>
+            <separator/>
+        </group>
+    </actions>
+</idea-plugin>

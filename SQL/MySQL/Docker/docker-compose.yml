@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+
+    container_name: mariadb
+
+    env_file:
+      - db_param.env
+
+    ports:
+      - '3306:3306'
+
+    volumes:
+      - type: bind
+        source: ./db-init
+        target: /docker-entrypoint-initdb.d
+
+      - type: volume
+        source: mariadbdata
+        target: /var/lib/mysql
+
+volumes:
+  mariadbdata:
