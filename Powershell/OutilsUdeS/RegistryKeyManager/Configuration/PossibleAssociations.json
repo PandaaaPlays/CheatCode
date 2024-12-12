@@ -1,0 +1,6 @@
+﻿{
+    ".csv (VSCode)": "HKCU:\\Software\\Classes\\VSCode.csv\\shell",
+    ".sql (VSCode)": "HKCU:\\Software\\Classes\\VSCode.sql\\shell",
+    "Dossiers": "HKLM:\\Software\\Classes\\Directory\\shell",
+    ".csv": "HKLM:\\Software\\Classes\\.csv\\shell"
+}

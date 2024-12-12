@@ -1,0 +1,4 @@
+
+/* Hello, ceci est un fichier .gdl */
+
+SELECT 'Hello' FROM gdl_File;

@@ -1,0 +1,4 @@
+
+/* Hello, ceci est un fichier .upd */
+
+SELECT 'Hello' FROM upd_File;
